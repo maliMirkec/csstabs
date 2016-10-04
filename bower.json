@@ -1,0 +1,26 @@
+{
+  "name": "csstabs",
+  "description": "CSS tabs (with disabled state).",
+  "main": "index.php",
+  "authors": [
+    "maliMirkec <malimirkeccita@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "tab",
+    "tabs"
+  ],
+  "homepage": "https://github.com/maliMirkec/csstabs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "cita-flex": "~1.2.2"
+  }
+}

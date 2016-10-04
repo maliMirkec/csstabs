@@ -1,0 +1,49 @@
+@import './bower_components/cita-flex/css/src/_cita-flex-mixins.scss';
+
+$size: .5rem;
+$background: #e5e5e5;
+$background--active: #fefefe;
+$color: #4e4e4e;
+$color--disabled: #8e8e8e;
+
+.tabs {
+    @include flex;
+    @include wrap(wrap);
+}
+
+.tabs__radio {
+    position: absolute;
+    left: -9999px;
+}
+
+.tabs__label {
+    @include flexbox(0 0 auto);
+    @include flex-basis(10);
+    @include flex;
+    @include justify(center);
+    padding: $size;
+    color: $color;
+    background-color: $background;
+    cursor: pointer;
+}
+
+.tabs__content {
+    @include flex-basis(1);
+    padding: $size;
+    display: none;
+}
+
+@for $i from 1 through 10 {
+    .tabs__radio:nth-of-type(#{$i}):checked {
+        & ~ .tabs__label:nth-of-type(#{$i}) {
+            background-color: $background--active;
+        }
+        & ~ .tabs__content:nth-of-type(#{$i}) {
+            display: block;
+        }
+    }
+    .tabs__radio:nth-of-type(#{$i}):disabled ~ .tabs__label:nth-of-type(#{$i}) {
+        color: $color--disabled;
+        cursor: no-drop;
+    }
+}

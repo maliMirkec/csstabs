@@ -3,3 +3,26 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.button {
+    background: DodgerBlue;
+    color: White;
+    border: 1px solid DodgerBlue;
+    padding: .5rem;
+    margin: 1rem .5rem 0;
+    cursor: pointer;
+    opacity: .75;
+    transition: opacity .25s linear, border .1s ease-in;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        border: 1px dotted White;
+    }
+
+    &:active {
+        border: 1px solid White;
+    }
+}

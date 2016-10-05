@@ -5,6 +5,7 @@ $background: #e5e5e5;
 $background--active: #fefefe;
 $color: #4e4e4e;
 $color--disabled: #8e8e8e;
+$breakpoint: 600px;
 
 .tabs {
     @include flex;
@@ -17,8 +18,8 @@ $color--disabled: #8e8e8e;
 }
 
 .tabs__label {
-    @include flexbox(0 0 auto);
-    @include flex-basis(10);
+    @include flexbox(1 0 auto);
+    @include flex-basis(2);
     @include flex;
     @include justify(center);
     padding: $size;
@@ -42,8 +43,19 @@ $color--disabled: #8e8e8e;
             display: block;
         }
     }
-    .tabs__radio:nth-of-type(#{$i}):disabled ~ .tabs__label:nth-of-type(#{$i}) {
-        color: $color--disabled;
-        cursor: no-drop;
+    .tabs__radio:nth-of-type(#{$i}):disabled {
+        & ~ .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
+            color: $color--disabled;
+            cursor: no-drop;
+        }
+        & ~ .hide-if-disabled:nth-of-type(#{$i}) {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint) {
+    .tabs__label {
+        @include flex-basis(10);
     }
 }

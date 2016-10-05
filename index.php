@@ -61,5 +61,17 @@
             <p>Tab content 10</p>
         </div>
     </div>
+    <button class="button" type="button" onclick="hideDisabled()">Hide disabled tabs</button>
+    <script>
+        function hideDisabled() {
+            var tabs = document.getElementsByClassName('tabs__label');
+            var content = document.getElementsByClassName('tabs__content');
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.toggle('hide-if-disabled');
+                content[i].classList.toggle('hide-if-disabled');
+            }
+        }
+    </script>
 </body>
 </html>

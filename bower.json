@@ -1,7 +1,7 @@
 {
   "name": "csstabs",
   "description": "CSS tabs (with disabled state).",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.php",
   "authors": [
     "maliMirkec <malimirkeccita@gmail.com>"

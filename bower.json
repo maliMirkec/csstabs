@@ -21,7 +21,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "cita-flex": "latest"
   }
 }

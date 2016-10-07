@@ -5,6 +5,10 @@ With disabled state
 
 `bower install csstabs`
 
+## Demo
+
+http://codepen.io/CiTA/full/JRpmOW/
+
 ## Usage
 
 1. Include and modify styling

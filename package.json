@@ -1,6 +1,6 @@
 {
   "name": "csstabs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "CSS tabs (with disabled state).",
   "main": "index.php",
   "scripts": {

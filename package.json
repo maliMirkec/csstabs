@@ -1,6 +1,6 @@
 {
   "name": "csstabs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "CSS tabs (with disabled state).",
   "main": "index.php",
   "scripts": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/maliMirkec/csstabs#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-bump": "^2.4.0",
     "gulp-sass": "^2.3.2"
   }
 }

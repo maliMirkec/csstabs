@@ -23,6 +23,7 @@
   "homepage": "https://github.com/maliMirkec/csstabs#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-bump": "^2.4.0",
     "gulp-sass": "^2.3.2"
   }
 }

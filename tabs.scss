@@ -4,7 +4,7 @@ $size: .5rem;
 $background: #e5e5e5;
 $background--active: #fefefe;
 $color: #4e4e4e;
-$color--disabled: #8e8e8e;
+$color--disabled: #5e5e5e;
 $breakpoint: 600px;
 
 .tabs {
@@ -13,8 +13,13 @@ $breakpoint: 600px;
 }
 
 .tabs__radio {
-    position: absolute;
-    left: -9999px;
+    @include flexbox(1 0 auto);
+    @include flex-basis(10);
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
 }
 
 .tabs__label {

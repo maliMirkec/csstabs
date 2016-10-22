@@ -4,9 +4,9 @@
   box-sizing: border-box; }
 
 .button {
-  background: DodgerBlue;
+  background: DarkBlue;
   color: White;
-  border: 1px solid DodgerBlue;
+  border: 1px solid DarkBlue;
   padding: .5rem;
   margin: 1rem .5rem 0;
   cursor: pointer;

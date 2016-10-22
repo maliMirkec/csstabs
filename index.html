@@ -9,8 +9,8 @@
     <title>CSS Tabs</title>
 </head>
 <body>
-    <div class="tabs">
-        <input type="radio" id="tab1" class="tabs__radio" name="tabs" value="1" checked>
+    <div class="tabs" role="tablist">
+        <input type="radio" id="tab1" class="tabs__radio" name="tabs" value="1" checked autofocus="true">
         <input type="radio" id="tab2" class="tabs__radio" name="tabs" value="2">
         <input type="radio" id="tab3" class="tabs__radio" name="tabs" value="3">
         <input type="radio" id="tab4" class="tabs__radio" name="tabs" value="4">
@@ -20,47 +20,48 @@
         <input type="radio" id="tab8" class="tabs__radio" name="tabs" value="8">
         <input type="radio" id="tab9" class="tabs__radio" name="tabs" value="9">
         <input type="radio" id="tab10" class="tabs__radio" name="tabs" value="10">
-        <label for="tab1" class="tabs__label">Tab 1</label>
-        <label for="tab2" class="tabs__label">Tab 2</label>
-        <label for="tab3" class="tabs__label">Tab 3</label>
-        <label for="tab4" class="tabs__label">Tab 4</label>
-        <label for="tab5" class="tabs__label">Tab 5</label>
-        <label for="tab6" class="tabs__label">Tab 6</label>
-        <label for="tab7" class="tabs__label">Tab 7</label>
-        <label for="tab8" class="tabs__label">Tab 8</label>
-        <label for="tab9" class="tabs__label">Tab 9</label>
-        <label for="tab10" class="tabs__label">Tab 10</label>
-        <div class="tabs__content">
+        <label for="tab1" id="tablabel1" class="tabs__label" role="tab" aria-selected="true">Tab 1</label>
+        <label for="tab2" id="tablabel2" class="tabs__label" role="tab" aria-selected="false">Tab 2</label>
+        <label for="tab3" id="tablabel3" class="tabs__label" role="tab" aria-selected="false">Tab 3</label>
+        <label for="tab4" id="tablabel4" class="tabs__label" role="tab" aria-selected="false">Tab 4</label>
+        <label for="tab5" id="tablabel5" class="tabs__label" role="tab" aria-selected="false">Tab 5</label>
+        <label for="tab6" id="tablabel6" class="tabs__label" role="tab" aria-selected="false">Tab 6</label>
+        <label for="tab7" id="tablabel7" class="tabs__label" role="tab" aria-selected="false">Tab 7</label>
+        <label for="tab8" id="tablabel8" class="tabs__label" role="tab" aria-selected="false">Tab 8</label>
+        <label for="tab9" id="tablabel9" class="tabs__label" role="tab" aria-selected="false">Tab 9</label>
+        <label for="tab10" id="tablabe1l0" class="tabs__label" role="tab" aria-selected="false">Tab 10</label>
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel1" aria-hidden="false">
             <p>Tab content 1</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel2" aria-hidden="true">
             <p>Tab content 2</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel3" aria-hidden="true">
             <p>Tab content 3</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel4" aria-hidden="true">
             <p>Tab content 4</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel5" aria-hidden="true">
             <p>Tab content 5</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel6" aria-hidden="true">
             <p>Tab content 6</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel7" aria-hidden="true">
             <p>Tab content 7</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel8" aria-hidden="true">
             <p>Tab content 8</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabel9" aria-hidden="true">
             <p>Tab content 9</p>
         </div>
-        <div class="tabs__content">
+        <div class="tabs__content" role="tabpanel" aria-labelledby="tablabe1l0" aria-hidden="true">
             <p>Tab content 10</p>
         </div>
     </div>
+    <script src="TwitchSwitch.js"></script>
     <button class="button" type="button" onclick="hideDisabled()">Hide disabled tabs</button>
     <script>
         function hideDisabled() {

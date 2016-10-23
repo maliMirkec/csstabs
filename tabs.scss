@@ -3,82 +3,58 @@
 $size: .5rem;
 $background: #e5e5e5;
 $background--active: #fefefe;
-$color: #4e4e4e;
+$color: #3e3e3e;
 $color--disabled: #5e5e5e;
+$color--focus: #1e1e1e;
 $breakpoint: 600px;
 
-.tabs {
-    @include flex;
-    @include wrap(wrap);
-}
-
 .tabs__radio {
-    @include flexbox(1 0 auto);
-    @include flex-basis(10);
-
-    &:focus,
-    &:active {
-        outline: none;
-    }
+    position: absolute;
 }
 
-.tabs__container,
 .tabs__list {
-    @include flex-basis(1);
-        @include flex;
-        @include wrap(wrap);
+    @include flex-container;
 }
 
 .tabs__label {
-    @include flexbox(1 0 auto);
-    @include flex-basis(2);
-    @include flex;
+    @include flexbox(0 0 10%);
+    @include flex-container;
+    @include item(center);
     @include justify(center);
-    padding: $size;
+    height: $size * 5;
+    border: 1px dotted transparent;
+    background: $background;
     color: $color;
-    background-color: $background;
-    cursor: pointer;
-}
-
-.tabs__container {
-    padding: $size;
 }
 
 .tabs__content {
+    padding: $size;
     display: none;
-
-    &:focus {
-        background: Blue;
-    }
 }
 
+$offset: 10%;
 @for $i from 1 through 10 {
-    .tabs__radio:nth-of-type(#{$i}):checked {
-        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
+    .tabs__radio:nth-of-type(#{$i}) {
+        left: calc(#{$offset} * (#{$i} - 1));
+        &:checked ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
             background-color: $background--active;
         }
-        & ~ .tabs__container > .tabs__content:nth-of-type(#{$i}) {
+        &:checked ~ .tabs__container > .tabs__content:nth-of-type(#{$i}) {
             display: block;
         }
-    }
-    .tabs__radio:nth-of-type(#{$i}):focus {
-        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
-            color: Tomato;
+        &:focus ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
+            color: $color--focus;
+            border-color: currentColor;
         }
-    }
-    .tabs__radio:nth-of-type(#{$i}):disabled {
-        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
+        &:disabled ~ .tabs__list > .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
             color: $color--disabled;
             cursor: no-drop;
         }
-        & ~ .hide-if-disabled:nth-of-type(#{$i}) {
+        &:disabled ~ .hide-if-disabled:nth-of-type(#{$i}) {
             display: none;
         }
     }
 }
 
 @media screen and (min-width: $breakpoint) {
-    .tabs__label {
-        @include flex-basis(10);
-    }
 }

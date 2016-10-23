@@ -22,6 +22,13 @@ $breakpoint: 600px;
     }
 }
 
+.tabs__container,
+.tabs__list {
+    @include flex-basis(1);
+        @include flex;
+        @include wrap(wrap);
+}
+
 .tabs__label {
     @include flexbox(1 0 auto);
     @include flex-basis(2);
@@ -33,23 +40,34 @@ $breakpoint: 600px;
     cursor: pointer;
 }
 
-.tabs__content {
-    @include flex-basis(1);
+.tabs__container {
     padding: $size;
+}
+
+.tabs__content {
     display: none;
+
+    &:focus {
+        background: Blue;
+    }
 }
 
 @for $i from 1 through 10 {
     .tabs__radio:nth-of-type(#{$i}):checked {
-        & ~ .tabs__label:nth-of-type(#{$i}) {
+        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
             background-color: $background--active;
         }
-        & ~ .tabs__content:nth-of-type(#{$i}) {
+        & ~ .tabs__container > .tabs__content:nth-of-type(#{$i}) {
             display: block;
         }
     }
+    .tabs__radio:nth-of-type(#{$i}):focus {
+        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
+            color: Tomato;
+        }
+    }
     .tabs__radio:nth-of-type(#{$i}):disabled {
-        & ~ .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
+        & ~ .tabs__list > .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
             color: $color--disabled;
             cursor: no-drop;
         }

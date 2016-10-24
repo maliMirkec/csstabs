@@ -6,18 +6,21 @@ $background--active: #fefefe;
 $color: #3e3e3e;
 $color--disabled: #5e5e5e;
 $color--focus: #1e1e1e;
-$breakpoint: 600px;
+$breakpoint1: 600px;
+$breakpoint2: 1000px;
 
 .tabs__radio {
     position: absolute;
+    height: $size * 2;
 }
 
 .tabs__list {
     @include flex-container;
+    @include wrap(wrap);
 }
 
 .tabs__label {
-    @include flexbox(0 0 10%);
+    @include flexbox(0 0 50%);
     @include flex-container;
     @include item(center);
     @include justify(center);
@@ -25,6 +28,14 @@ $breakpoint: 600px;
     border: 1px dotted transparent;
     background: $background;
     color: $color;
+
+    @media screen and (min-width: $breakpoint1) {
+        @include flexbox(0 0 20%);
+    }
+
+    @media screen and (min-width: $breakpoint2) {
+        @include flexbox(0 0 10%);
+    }
 }
 
 .tabs__content {
@@ -35,7 +46,27 @@ $breakpoint: 600px;
 $offset: 10%;
 @for $i from 1 through 10 {
     .tabs__radio:nth-of-type(#{$i}) {
-        left: calc(#{$offset} * (#{$i} - 1));
+        @if $i % 2 == 0 {
+            left: $size;
+        }
+        @if $i % 2 == 1 {
+            left: calc(50% + #{$size});
+        }
+        @if $i / 2 <= 1 {
+            top: $size * 1.5;
+        }
+        @if $i / 2 > 1 {
+            top: $size * 6.5;
+        }
+        @if $i / 2 > 2 {
+            top: $size * 11.5;
+        }
+        @if $i / 2 > 3 {
+            top: $size * 16.5;
+        }
+        @if $i / 2 > 4 {
+            top: $size * 21.5;
+        }
         &:checked ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
             background-color: $background--active;
         }
@@ -53,8 +84,33 @@ $offset: 10%;
         &:disabled ~ .hide-if-disabled:nth-of-type(#{$i}) {
             display: none;
         }
-    }
-}
 
-@media screen and (min-width: $breakpoint) {
+        @media screen and (min-width: $breakpoint1) {
+            left: $size;
+
+            @if $i <= 5 {
+                top: $size * 1.5;
+            }
+            @if $i > 5 {
+                top: $size * 6.5;
+            }
+            @if $i == 2 or $i == 7 {
+                left: calc(20% + #{$size});
+            }
+            @if $i == 3 or $i == 8 {
+                left: calc(40% + #{$size});
+            }
+            @if $i == 4 or $i == 9 {
+                left: calc(60% + #{$size});
+            }
+            @if $i == 5 or $i == 10 {
+                left: calc(80% + #{$size});
+            }
+        }
+
+        @media screen and (min-width: $breakpoint2) {
+            top: $size * 1.5;
+            left: calc(#{$offset} * (#{$i} - 1) + #{$size});
+        }
+    }
 }

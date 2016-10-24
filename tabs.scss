@@ -3,59 +3,114 @@
 $size: .5rem;
 $background: #e5e5e5;
 $background--active: #fefefe;
-$color: #4e4e4e;
-$color--disabled: #8e8e8e;
-$breakpoint: 600px;
-
-.tabs {
-    @include flex;
-    @include wrap(wrap);
-}
+$color: #3e3e3e;
+$color--disabled: #5e5e5e;
+$color--focus: #1e1e1e;
+$breakpoint1: 600px;
+$breakpoint2: 1000px;
 
 .tabs__radio {
     position: absolute;
-    left: -9999px;
+    height: $size * 2;
+}
+
+.tabs__list {
+    @include flex-container;
+    @include wrap(wrap);
 }
 
 .tabs__label {
-    @include flexbox(1 0 auto);
-    @include flex-basis(2);
-    @include flex;
+    @include flexbox(0 0 50%);
+    @include flex-container;
+    @include item(center);
     @include justify(center);
-    padding: $size;
+    height: $size * 5;
+    border: 1px dotted transparent;
+    background: $background;
     color: $color;
-    background-color: $background;
-    cursor: pointer;
+
+    @media screen and (min-width: $breakpoint1) {
+        @include flexbox(0 0 20%);
+    }
+
+    @media screen and (min-width: $breakpoint2) {
+        @include flexbox(0 0 10%);
+    }
 }
 
 .tabs__content {
-    @include flex-basis(1);
     padding: $size;
     display: none;
 }
 
+$offset: 10%;
 @for $i from 1 through 10 {
-    .tabs__radio:nth-of-type(#{$i}):checked {
-        & ~ .tabs__label:nth-of-type(#{$i}) {
+    .tabs__radio:nth-of-type(#{$i}) {
+        @if $i % 2 == 0 {
+            left: $size;
+        }
+        @if $i % 2 == 1 {
+            left: calc(50% + #{$size});
+        }
+        @if $i / 2 <= 1 {
+            top: $size * 1.5;
+        }
+        @if $i / 2 > 1 {
+            top: $size * 6.5;
+        }
+        @if $i / 2 > 2 {
+            top: $size * 11.5;
+        }
+        @if $i / 2 > 3 {
+            top: $size * 16.5;
+        }
+        @if $i / 2 > 4 {
+            top: $size * 21.5;
+        }
+        &:checked ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
             background-color: $background--active;
         }
-        & ~ .tabs__content:nth-of-type(#{$i}) {
+        &:checked ~ .tabs__container > .tabs__content:nth-of-type(#{$i}) {
             display: block;
         }
-    }
-    .tabs__radio:nth-of-type(#{$i}):disabled {
-        & ~ .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
+        &:focus ~ .tabs__list > .tabs__label:nth-of-type(#{$i}) {
+            color: $color--focus;
+            border-color: currentColor;
+        }
+        &:disabled ~ .tabs__list > .tabs__label:nth-of-type(#{$i}):not(.tabs__label--hide) {
             color: $color--disabled;
             cursor: no-drop;
         }
-        & ~ .hide-if-disabled:nth-of-type(#{$i}) {
+        &:disabled ~ .hide-if-disabled:nth-of-type(#{$i}) {
             display: none;
         }
-    }
-}
 
-@media screen and (min-width: $breakpoint) {
-    .tabs__label {
-        @include flex-basis(10);
+        @media screen and (min-width: $breakpoint1) {
+            left: $size;
+
+            @if $i <= 5 {
+                top: $size * 1.5;
+            }
+            @if $i > 5 {
+                top: $size * 6.5;
+            }
+            @if $i == 2 or $i == 7 {
+                left: calc(20% + #{$size});
+            }
+            @if $i == 3 or $i == 8 {
+                left: calc(40% + #{$size});
+            }
+            @if $i == 4 or $i == 9 {
+                left: calc(60% + #{$size});
+            }
+            @if $i == 5 or $i == 10 {
+                left: calc(80% + #{$size});
+            }
+        }
+
+        @media screen and (min-width: $breakpoint2) {
+            top: $size * 1.5;
+            left: calc(#{$offset} * (#{$i} - 1) + #{$size});
+        }
     }
 }

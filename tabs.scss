@@ -47,10 +47,10 @@ $offset: 10%;
 @for $i from 1 through 10 {
     .tabs__radio:nth-of-type(#{$i}) {
         @if $i % 2 == 0 {
-            left: $size;
+            left: calc(50% + #{$size});
         }
         @if $i % 2 == 1 {
-            left: calc(50% + #{$size});
+            left: $size;
         }
         @if $i / 2 <= 1 {
             top: $size * 1.5;

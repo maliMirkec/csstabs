@@ -1,0 +1,90 @@
+{
+  "name": "maliMirkec/csstabs",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Pure CSS tabs",
+  "branch": "master",
+  "style": {
+    "name": "Material",
+    "componentSet": {
+      "nav": "nav/DarkAbsoluteNav",
+      "header": "header/GradientHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Roboto, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "letterSpacing": "-0.01em"
+    },
+    "colors": {
+      "text": "#212121",
+      "background": "#fff",
+      "primary": "#2196f3",
+      "secondary": "#1565c0",
+      "highlight": "#ff4081",
+      "border": "#e0e0e0",
+      "muted": "#f5f5f5"
+    },
+    "layout": {
+      "centered": true,
+      "bannerHeight": "80vh",
+      "maxWidth": 896
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/maliMirkec/csstabs",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/csstabs",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "csstabs",
+      "subhead": "With disabled state.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "csstabs: With disabled state.",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "maliMirkec",
+          "repo": "csstabs"
+        }
+      ],
+      "text": "v0.3.2"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n\n<h2>Installation</h2>\n<p><code>bower install csstabs</code></p>\n<h2>Demo</h2>\n<p><a href=\"http://codepen.io/CiTA/full/JRpmOW/\">http://codepen.io/CiTA/full/JRpmOW/</a></p>\n<h2>Usage</h2>\n<ol>\n<li>Include and modify styling</li>\n</ol>\n<pre><span class=\"hljs-comment\">// Default variables</span>\n<span class=\"hljs-variable\">$size</span>: .<span class=\"hljs-number\">5rem</span>;\n<span class=\"hljs-variable\">$background</span>: <span class=\"hljs-number\">#e5e5e5</span>;\n<span class=\"hljs-variable\">$background--active</span>: <span class=\"hljs-number\">#fefefe</span>;\n<span class=\"hljs-variable\">$color</span>: <span class=\"hljs-number\">#4e4e4e</span>;\n<span class=\"hljs-variable\">$color--disabled</span>: <span class=\"hljs-number\">#8e8e8e</span>;\n<span class=\"hljs-variable\">$breakpoint</span>: <span class=\"hljs-number\">600px</span>;\n\n<span class=\"hljs-comment\">// include tabs styling</span>\n@<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&apos;./path-to-bower-folder/csstabs/tabs.scss&apos;</span>;\n\n<span class=\"hljs-comment\">// add custom styling</span>\n<span class=\"hljs-selector-class\">.tabs__label</span> {\n    <span class=\"hljs-attribute\">text-shadow</span>: <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">1px</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">#444</span>;\n}\n\n<span class=\"hljs-selector-class\">.tabs__content</span> {\n    <span class=\"hljs-attribute\">border-bottom</span>: <span class=\"hljs-number\">#444</span>;\n}</pre><ol>\n<li>Add and modify <code>HTML</code> structure</li>\n</ol>\n<pre>&lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab1&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;1&quot;</span> checked&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab2&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;2&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab3&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;3&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab4&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;4&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab5&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;5&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab6&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;6&quot;</span> disabled&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab7&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;7&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab8&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;8&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab9&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;9&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">input</span> <span class=\"hljs-keyword\">type</span>=<span class=\"hljs-string\">&quot;radio&quot;</span> id=<span class=\"hljs-string\">&quot;tab10&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__radio&quot;</span> name=<span class=\"hljs-string\">&quot;tabs&quot;</span> value=<span class=\"hljs-string\">&quot;10&quot;</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab1&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 1&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab2&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 2&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab3&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 3&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab4&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 4&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab5&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 5&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab6&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 6&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab7&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 7&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab8&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 8&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab9&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 9&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;<span class=\"hljs-keyword\">label</span> <span class=\"hljs-keyword\">for</span>=<span class=\"hljs-string\">&quot;tab10&quot;</span> <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__label&quot;</span>&gt;<span class=\"hljs-keyword\">Tab</span> 10&lt;/<span class=\"hljs-keyword\">label</span>&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 1&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 2&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 3&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 4&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 5&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 6&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 7&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 8&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 9&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div <span class=\"hljs-keyword\">class</span>=<span class=\"hljs-string\">&quot;tabs__content&quot;</span>&gt;\n        &lt;p&gt;<span class=\"hljs-keyword\">Tab</span> content 10&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;</pre><h2>Addition options</h2>\n<p>Add <code>hide-if-disabled</code> class to <code>.tabs__label</code> and <code>.tabs__content</code> elements if you want to hide tabs and content when input radio is disabled.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/maliMirkec/csstabs",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/maliMirkec",
+          "text": "maliMirkec"
+        }
+      ]
+    }
+  ]
+}
